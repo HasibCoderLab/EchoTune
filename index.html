@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music-Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/media/images/icon/icon.jfif" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="containar">
+
+        <div class="music-player">
+            <nav>
+
+                <div class="circle">
+                    <i class='bx bx-left-arrow-alt'></i>
+                </div>
+
+                <div class="circle">
+                    <i class='bx bx-menu'></i>
+                </div>
+
+            </nav>
+ 
+            <img src="/media/images/Photo1.png" class="song-image">
+            <h1>Broken Angel</h1>
+            <p>Helena Marianne Josefsson  </p>
+
+
+            <audio controls  id="song" >
+                <source src="media/Music/Arash feat. Helena - Broken Angel .mp3" type="audio/mp3">
+            </audio>
+
+            <input type="range" value="0"  id="progress" >
+
+
+            <div class="controls">
+                <div><i class='bx bx-rewind'></i></div>
+                <div onclick="playPause()" ><i class='bx bx-play' id="ctrlIcon" ></i></div>
+                <div><i class='bx bx-fast-forward'></i></div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+<script src="script.js"></script>
+
+</body>
+</html>
