@@ -3,35 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EchoTune</title>
+  <title>EchoTune - Music Player</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="/media/images/icon/icon.jfif" type="image/x-icon" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
 </head>
 <body>
+  <button onclick="toggleMode()" class="mode-toggle">🌓</button>
+
   <div class="containar">
     <div class="music-player">
       <nav>
-        <div class="circle"><i class='bx bx-left-arrow-alt'></i></div>
-        <div class="circle"><i class='bx bx-menu'></i></div>
+        <input type="text" id="search" placeholder="🔍 Search song..." />
+        <div class="circle" onclick="togglePlaylist()"><i class='bx bx-menu'></i></div>
       </nav>
 
-      <img src="/media/images/Photo1.png" class="song-image">
-      <h1>Broken Angel</h1>
-      <p>Helena Marianne Josefsson</p>
+      <img src="" class="song-image" id="songImage">
+      <h1 id="songTitle">Title</h1>
+      <p id="songArtist">Artist</p>
 
       <audio id="song">
-        <source src="media/Music/Arash feat. Helena - Broken Angel .mp3" type="audio/mp3">
+        <source src="" type="audio/mp3" id="songSource">
       </audio>
 
       <input type="range" value="0" id="progress" />
 
       <div class="controls">
-        <div><i class='bx bx-rewind'></i></div>
+        <div onclick="prevSong()"><i class='bx bx-rewind'></i></div>
         <div onclick="playPause()"><i class='bx bx-play' id="ctrlIcon"></i></div>
-        <div><i class='bx bx-fast-forward'></i></div>
+        <div onclick="nextSong()"><i class='bx bx-fast-forward'></i></div>
+      </div>
+
+      <div class="extra-controls">
+        <div onclick="toggleShuffle()" title="Shuffle"><i class='bx bx-shuffle' id="shuffleIcon"></i></div>
+        <div onclick="toggleRepeat()" title="Repeat"><i class='bx bx-repeat' id="repeatIcon"></i></div>
+      </div>
+
+      <div class="download">
+        <button onclick="downloadSong()">⬇️ Download</button>
+      </div>
+
+      <div class="upload-section">
+        <input type="file" accept="audio/*" id="fileInput" />
       </div>
     </div>
+
+    <div id="playlist" class="playlist hidden"></div>
   </div>
 
   <script src="script.js"></script>
