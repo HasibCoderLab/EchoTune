@@ -15,19 +15,19 @@ const songs = [
   {
     title: "Broken Angel",
     artist: "Arash ft. Helena",
-    src: "media/Music/Arash feat. Helena - Broken Angel .mp3",
+    src: "media/Music/Arash feat. Helena - Broken Angel.mp3",
     image: "media/images/Photo1.png"
   },
   {
-    title: "Love Me Like You Do",
-    artist: "Ellie Goulding",
-    src: "media/Music/Love Me Like You Do.mp3",
+    title: "Aashiq Banaya Aapne",
+    artist: "Diya Ghosh",
+    src: "media/Music/Aashiq Banaya Aapne.mp3",
     image: "media/images/Photo2.png"
   },
   {
-    title: "Perfect",
-    artist: "Ed Sheeran",
-    src: "media/Music/Perfect - Ed Sheeran.mp3",
+    title: "Dil Ne Ye Ka",
+    artist: "Girl",
+    src: "media/Music/Dil Ne Ye Ka.mp3",
     image: "media/images/Photo3.png"
   }
 ];
