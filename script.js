@@ -22,13 +22,13 @@ const songs = [
     title: "Aashiq Banaya Aapne",
     artist: "Diya Ghosh",
     src: "media/Music/Aashiq Banaya Aapne.mp3",
-    image: "media/images/Photo-2.jpeg"
+    image: "media/images/Photo3.png"
   },
   {
     title: "Dil Ne Ye Ka",
     artist: "Girl",
     src: "media/Music/Dil Ne Ye Ka.mp3",
-    image: "media/images/Photo-3.jpeg"
+    image: "media/images/Photo4.jpeg"
   }
 ];
 
@@ -38,52 +38,62 @@ let isRepeat = false;
 
 function loadSong(index) {
   const s = songs[index];
+  song.pause(); // If it is already playing, stop it.
   songTitle.textContent = s.title;
   songArtist.textContent = s.artist;
   songSource.src = s.src;
   songImage.src = s.image;
   song.load();
+  updateProgress(0);
+  playPause(true); // Automatic play when loaded
 }
 loadSong(currentSong);
 
-function playPause() {
-  if (song.paused) {
-    song.play();
-    ctrlIcon.classList.replace('bx-play', 'bx-pause');
+function playPause(forcePlay = false) {
+  if (song.paused || forcePlay) {
+    song.play().then(() => {
+      ctrlIcon.classList.replace('bx-play', 'bx-pause');
+    }).catch(e => {
+      console.warn("Play prevented:", e);
+    });
   } else {
     song.pause();
     ctrlIcon.classList.replace('bx-pause', 'bx-play');
   }
 }
 
-song.onloadedmetadata = () => progress.max = song.duration;
+function updateProgress(value) {
+  progress.value = value;
+}
 
-setInterval(() => {
-  progress.value = song.currentTime;
-}, 500);
+song.addEventListener('loadedmetadata', () => {
+  progress.max = song.duration;
+});
 
-progress.onchange = () => {
+song.addEventListener('timeupdate', () => {
+  updateProgress(song.currentTime);
+});
+
+progress.addEventListener('input', () => {
   song.currentTime = progress.value;
-  song.play();
-  ctrlIcon.classList.replace("bx-play", "bx-pause");
-};
+});
 
 function nextSong() {
   if (isShuffle) {
-    currentSong = Math.floor(Math.random() * songs.length);
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * songs.length);
+    } while (newIndex === currentSong && songs.length > 1);
+    currentSong = newIndex;
   } else {
     currentSong = (currentSong + 1) % songs.length;
   }
   loadSong(currentSong);
-  song.play();
-  ctrlIcon.classList.replace("bx-play", "bx-pause");
 }
 
 function prevSong() {
   currentSong = (currentSong - 1 + songs.length) % songs.length;
   loadSong(currentSong);
-  song.play();
-  ctrlIcon.classList.replace("bx-play", "bx-pause");
 }
 
 function togglePlaylist() {
@@ -100,13 +110,12 @@ function renderPlaylist(filter = "") {
       item.onclick = () => {
         currentSong = index;
         loadSong(currentSong);
-        song.play();
-        ctrlIcon.classList.replace("bx-play", "bx-pause");
       };
       playlistEl.appendChild(item);
     });
 }
 renderPlaylist();
+
 search.addEventListener("input", (e) => renderPlaylist(e.target.value));
 
 function toggleShuffle() {
@@ -132,20 +141,22 @@ function downloadSong() {
   const link = document.createElement('a');
   link.href = songs[currentSong].src;
   link.download = songs[currentSong].title + ".mp3";
+  document.body.appendChild(link);
   link.click();
+  document.body.removeChild(link);
 }
 
 fileInput.addEventListener("change", function () {
   const file = this.files[0];
   if (file) {
     const url = URL.createObjectURL(file);
+    song.pause();
     songTitle.textContent = file.name;
     songArtist.textContent = "Custom Upload";
     songImage.src = "media/images/default.png";
     songSource.src = url;
     song.load();
-    song.play();
-    ctrlIcon.classList.replace("bx-play", "bx-pause");
+    playPause(true);
   }
 });
 
