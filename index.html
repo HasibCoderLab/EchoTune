@@ -17,15 +17,16 @@
         <div class="circle" onclick="togglePlaylist()"><i class='bx bx-menu'></i></div>
       </nav>
 
-      <img src="" class="song-image" id="songImage">
+      <img src="" class="song-image" id="songImage" alt="Song Image" />
       <h1 id="songTitle">Title</h1>
       <p id="songArtist">Artist</p>
 
-      <audio id="song">
-        <source src="" type="audio/mp3" id="songSource">
+      <audio id="song" preload="metadata">
+        <source src="" type="audio/mpeg" id="songSource" />
+        Your browser does not support the audio element.
       </audio>
 
-      <input type="range" value="0" id="progress" />
+      <input type="range" value="0" id="progress" min="0" step="0.01" />
 
       <div class="controls">
         <div onclick="prevSong()"><i class='bx bx-rewind'></i></div>

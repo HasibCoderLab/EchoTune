@@ -22,13 +22,13 @@ const songs = [
     title: "Aashiq Banaya Aapne",
     artist: "Diya Ghosh",
     src: "media/Music/Aashiq Banaya Aapne.mp3",
-    image: "media/images/Photo3.jpng"
+    image: "media/images/Photo-2.jpeg"
   },
   {
     title: "Dil Ne Ye Ka",
     artist: "Girl",
     src: "media/Music/Dil Ne Ye Ka.mp3",
-    image: "media/images/Photo4.jpeg"
+    image: "media/images/Photo-3.jpeg"
   }
 ];
 
