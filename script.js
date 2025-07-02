@@ -16,7 +16,7 @@ const songs = [
     title: "Broken Angel",
     artist: "Arash ft. Helena",
     src: "media/Music/Arash feat. Helena - Broken Angel.mp3",
-    image: "media/images/Photo1.png"
+    image: "media/images/Photo-1.png"
   },
   {
     title: "Aashiq Banaya Aapne",
