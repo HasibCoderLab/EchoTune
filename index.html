@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EchoTune - Music Player</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="media/images/icon/icon.jfif" type="image/x-icon">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+  <link rel="shortcut icon" href="media/images/icon/icon.jfif" type="image/x-icon" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- 🌙 Dark/Light Mode Button -->
   <button onclick="toggleMode()" class="mode-toggle">🌓</button>
 
-  <!-- 🎵 Music Player Container -->
   <div class="containar">
     <div class="music-player">
       <nav>
@@ -21,7 +18,7 @@
         <div class="circle" onclick="togglePlaylist()"><i class='bx bx-menu'></i></div>
       </nav>
 
-      <img src="" class="song-image" id="songImage" alt="Song Image" />
+      <img src="media/images/default.png" class="song-image" id="songImage" alt="Song Image" />
       <h1 id="songTitle">Title</h1>
       <p id="songArtist">Artist</p>
 
@@ -50,31 +47,21 @@
       <div class="upload-section">
         <input type="file" accept="audio/*" id="fileInput" />
       </div>
+
+      <div id="playlist" class="playlist hidden"></div>
     </div>
 
-    <div id="playlist" class="playlist hidden"></div>
+    
   </div>
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://github.com/HasibCoderLab" target="_blank"><i class='bx bxl-github'></i></a>
+      <a href="https://instagram.com/your_instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
+      <a href="https://your-portfolio.com" target="_blank"><i class='bx bx-globe'></i></a>
+    </div>
+    <p>© 2025 <strong>EchoTune</strong>. Crafted by Mohammad Hasib Hasan </p>
+  </footer>
 
- <footer class="footer">
-  <!-- 🔗 Social Links with Icons -->
-  <div class="social-links" style="margin-bottom: 8px;">
-    <a href="https://coderhasib.vercel.app/" target="_blank" title="Portfolio" style="margin: 0 8px; color: inherit;">
-      <i class='bx bx-globe'></i>
-    </a>
-    <a href="https://www.instagram.com/mohammad_hasib_hasan/" target="_blank" title="Instagram" style="margin: 0 8px; color: inherit;">
-      <i class='bx bxl-instagram'></i>
-    </a>
-    <a href="https://github.com/HasibCoderLab" target="_blank" title="GitHub" style="margin: 0 8px; color: inherit;">
-      <i class='bx bxl-github'></i>
-    </a>
-  </div>
-
-  <!-- 📄 Copyright Message -->
-  <p>© 2025 EchoTune. All rights reserved. Designed by Hasib.</p>
-</footer>
-
-
-  <!-- 🎯 JS -->
   <script src="script.js"></script>
 </body>
 </html>
