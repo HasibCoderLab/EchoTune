@@ -11,6 +11,24 @@ const shuffleIcon = document.getElementById('shuffleIcon');
 const repeatIcon = document.getElementById('repeatIcon');
 const fileInput = document.getElementById('fileInput');
 
+// ✅ Live Clock Setup
+const clockEl = document.createElement('div');
+clockEl.id = "liveClock";
+clockEl.style.textAlign = "center";
+clockEl.style.fontSize = "14px";
+clockEl.style.color = "#00ffe5";
+clockEl.style.marginTop = "10px";
+document.querySelector(".music-player").appendChild(clockEl);
+
+function updateClock() {
+  const now = new Date();
+  const timeString = now.toLocaleTimeString();
+  document.getElementById("liveClock").textContent = `🕒 ${timeString}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+
 const songs = [
   {
     title: "Broken Angel",
@@ -38,14 +56,14 @@ let isRepeat = false;
 
 function loadSong(index) {
   const s = songs[index];
-  song.pause(); // If it is already playing, stop it.
+  song.pause();
   songTitle.textContent = s.title;
   songArtist.textContent = s.artist;
   songSource.src = s.src;
-  songImage.src = s.image;
+  songImage.src = s.image || "media/images/default.png";
   song.load();
   updateProgress(0);
-  playPause(true); // Automatic play when loaded
+  playPause(true);
 }
 loadSong(currentSong);
 
@@ -115,7 +133,6 @@ function renderPlaylist(filter = "") {
     });
 }
 renderPlaylist();
-
 search.addEventListener("input", (e) => renderPlaylist(e.target.value));
 
 function toggleShuffle() {
