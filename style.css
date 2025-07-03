@@ -257,42 +257,24 @@ audio {
   font-weight: bold;
   z-index: 1000;
 }
-.footer {
+.footer{
   text-align: center;
-  font-size: 13px;
-  color: #ccc;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.footer .social-icons {
-  margin-bottom: 8px;
-}
-
-.footer .social-icons a {
-  margin: 0 8px;
-  font-size: 20px;
+.social-links a {
+  font-size: 24px;
   color: #00ffe5;
-  transition: color 0.3s ease;
+  transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+  display: inline-block;
 }
-
-.footer .social-icons a:hover {
-  color: #00ccff;
-}
-
-body.light-mode .footer {
-  color: #333;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .footer .social-icons a {
-  color: #111;
+.social-links a:hover {
+  transform: rotate(15deg) scale(1.2);
+  color: #fff;
+  text-shadow: 0 0 8px #00ffe5, 0 0 15px #00ffe5;
 }
 
 /* 
 .footer {
-  text-align: center;
+  
   font-size: 12px;
 @@ -269,4 +303,5 @@
   color: #333;
