@@ -34,13 +34,13 @@ const songs = [
     title: "Aashiq Banaya Aapne",
     artist: "Diya Ghosh",
     src: "media/Music/Aashiq Banaya Aapne.mp3",
-    image: "media/images/Photo-2.jpeg"
+    image: "media/images/Photo-1.jpeg"
   },
   {
     title: "Broken Angel",
     artist: "Arash ft. Helena",
     src: "media/Music/Arash feat. Helena - Broken Angel.mp3",
-    image: "media/images/Photo-1.png"
+    image: "media/images/Photo-2.jpeg"
   },
  
   {
